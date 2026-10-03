@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500&display=swap');
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; min-height:100vh; color:#fff;
+  font-family:'Montserrat',sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%,#553044 0,transparent 28%),
+    radial-gradient(circle at 85% 80%,#263f59 0,transparent 30%),
+    linear-gradient(145deg,#080d18,#172438 55%,#0a101b);
+  overflow-x:hidden;
+}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.particle{position:absolute;top:-40px;animation:fall linear infinite;opacity:.7}
+@keyframes fall{to{transform:translate3d(80px,110vh,0) rotate(360deg)}}
+
+#lock{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:24px;position:relative;z-index:1
+}
+.lock-card{
+  width:min(430px,100%);padding:44px 28px;text-align:center;
+  border:1px solid rgba(255,255,255,.18);border-radius:32px;
+  background:rgba(255,255,255,.075);backdrop-filter:blur(18px);
+  box-shadow:0 30px 90px rgba(0,0,0,.45)
+}
+.rose{font-size:68px;filter:drop-shadow(0 8px 20px rgba(255,160,190,.25));animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-9px)}}
+.kicker{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#dcbac8;margin-top:20px}
+h1,h2{font-family:'Cormorant Garamond',serif}
+h1{font-size:46px;font-weight:500;margin:8px 0}
+.subtitle{color:#d8dce4;line-height:1.7;font-size:14px}
+input{
+  width:100%;padding:16px 18px;margin:22px 0 12px;
+  border:1px solid rgba(255,255,255,.2);border-radius:16px;
+  background:rgba(255,255,255,.1);color:#fff;outline:none;
+  text-align:center;font-size:16px
+}
+input::placeholder{color:#b9bec8}
+button{
+  width:100%;padding:16px;border:0;border-radius:16px;
+  background:linear-gradient(135deg,#f2b7c7,#e7a6ba);
+  color:#28131b;font-weight:600;font-size:15px;cursor:pointer;
+  box-shadow:0 10px 30px rgba(232,166,186,.2)
+}
+#error{height:22px;color:#ffb5c5;font-size:12px;margin-top:8px}
+
+#main{display:none;position:relative;z-index:1;max-width:850px;margin:auto;padding:65px 20px 80px;text-align:center}
+.top-flowers{font-size:45px;letter-spacing:7px}
+.eyebrow{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#dcbac8;margin-top:25px}
+h2{font-size:62px;font-weight:500;line-height:.95;margin:10px 0 18px}
+.intro{max-width:600px;margin:0 auto 38px;color:#dce0e7;line-height:1.9;font-size:15px}
+
+.video-wrap{
+  padding:9px;border-radius:27px;
+  background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.04));
+  box-shadow:0 25px 70px rgba(0,0,0,.42)
+}
+video{display:block;width:100%;border-radius:20px;background:#05080d}
+
+.flower-garden{
+  margin:55px auto 35px;padding:28px 12px;
+  border-top:1px solid rgba(255,255,255,.12);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  font-size:42px;letter-spacing:7px
+}
+.quote{
+  font-family:'Cormorant Garamond',serif;font-size:29px;
+  line-height:1.35;color:#f6e9ee;max-width:620px;margin:0 auto
+}
+.footer{margin-top:45px;color:#9da8b7;font-size:11px;letter-spacing:2px}
+@media(max-width:500px){
+  h1{font-size:40px} h2{font-size:51px}
+  .top-flowers{font-size:37px}.quote{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<div class="particles">
+  <span class="particle" style="left:7%;font-size:22px;animation-duration:9s">🌸</span>
+  <span class="particle" style="left:19%;font-size:17px;animation-duration:12s;animation-delay:2s">♡</span>
+  <span class="particle" style="left:34%;font-size:21px;animation-duration:10s;animation-delay:4s">🌷</span>
+  <span class="particle" style="left:52%;font-size:16px;animation-duration:13s">✦</span>
+  <span class="particle" style="left:68%;font-size:21px;animation-duration:11s;animation-delay:3s">🌸</span>
+  <span class="particle" style="left:84%;font-size:18px;animation-duration:14s;animation-delay:1s">♡</span>
+  <span class="particle" style="left:94%;font-size:20px;animation-duration:10s;animation-delay:5s">🌷</span>
+</div>
+
+<section id="lock">
+  <div class="lock-card">
+    <div class="rose">🌹</div>
+    <div class="kicker">A little secret</div>
+    <h1>Just for you</h1>
+    <p class="subtitle">There’s something waiting for you inside.<br>Enter the little secret we share.</p>
+    <input id="pass" type="password" placeholder="Enter the password">
+    <button onclick="unlock()">Open my surprise ♡</button>
+    <div id="error"></div>
+  </div>
+</section>
+
+<main id="main">
+  <div class="top-flowers">🌷　🌸　🌹</div>
+  <div class="eyebrow">made especially for you</div>
+  <h2>A little piece<br>of my heart ♡</h2>
+  <p class="intro">I wanted to give you something you could open whenever you wanted a little reminder that you are special to me.</p>
+
+  <div class="video-wrap">
+    <video controls playsinline preload="metadata">
+      <source src="final_reedit_voice_fixed_v2.mp4" type="video/mp4">
+      Your browser does not support video playback.
+    </video>
+  </div>
+
+  <div class="flower-garden">🌷 🌸 🌼 🌹 🌼 🌸 🌷</div>
+  <p class="quote">“Some people make ordinary moments feel a little more beautiful.”</p>
+  <div class="footer">WITH LOVE ♡</div>
+</main>
+
+<script>
+function unlock(){
+  const value=document.getElementById('pass').value;
+  const error=document.getElementById('error');
+  if(value==="8112"){
+    document.getElementById('lock').style.display='none';
+    document.getElementById('main').style.display='block';
+    window.scrollTo(0,0);
+  }else{
+    error.textContent="Try again ♡";
+  }
+}
+document.getElementById('pass').addEventListener('keydown',e=>{
+  if(e.key==='Enter') unlock();
+});
+</script>
+</body>
+</html>
